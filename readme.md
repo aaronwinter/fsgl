@@ -3,6 +3,7 @@
 ### Simple dynamically-typed functional(ish) programming language
 
 ### Setup
+Make sure you have Python with version at least 3.4.1.
 
 ### Hello World
 ```
@@ -41,6 +42,10 @@ m = #{
   'stringkey' :symbolvalue,
   true (6, 6, 6)
 }
+
+m(:a)  ; 4
+m('stringkey')  ; :symbolvalue
+m(true)  ; (6, 6, 6)
 ```
 
 ### Basic operations
@@ -53,22 +58,36 @@ e = +(*(2, 5), 7)  ; 17
 f = >(4, -1)  ; true
 ```
 
+### Pattern matching
+```
+a, b = (1, 2, 3)  ; a = 1, b = (2, 3)
+c, d, e = [4, 5, 6]  ; c = 4, d = 5, e = 6
+```
+
 ### Functions
 ```
-f = (x, y, z) -> {
+f = (x, y, z) => {
   +(x, *(y, z))
 }
 
 f(1, 2, 3)  ; 7
-f(4, 5)  ; (z) -> { f(4, 5, z) }
+f(4, 5)  ; (z) var => { f(4, 5, z) }
 
 g = { 4 + 5 }
 g()  ; 9
+
+(a) var => { 4 + a }(10)  ; 14
 ```
 
 ### Branching
 ```
 a = if({ >(4, 5) }, 47, :no)  ; :no
+```
+
+### Higher Order Functions
+```
+map((x) var => {x+1}, [1, 2, 3])  ; [2, 3, 4]
+foldl((a, b) var => )
 ```
 
 ### Basic I/O
@@ -77,4 +96,8 @@ prints('string')  ; 'string'
 prints(65)  ; '17'
 prints(true)  ; '1'
 prints(:thing)  ; 'thing'
+
+a = reads()
+>>something
+a  ; 'something'
 ```
