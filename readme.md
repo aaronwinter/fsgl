@@ -89,7 +89,8 @@ a = if({ >(4, 5) }, 47, :no)  ; :no
 ### Higher Order Functions
 ```
 map((x) => {x+1}, [1, 2, 3])  ; [2, 3, 4]
-foldl((a, b) => )
+foldl((a, b) => { a + b }, (1, 2, 3))  ; 6
+foldr((a, b) => { a + b }, (1, 2, 3))  ; 6
 ```
 
 ### Basic I/O
