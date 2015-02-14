@@ -39,7 +39,7 @@ len(v)  ; 4
 
 ### Map
 ```
-m = {
+m = #{
   :a 4,
   'stringkey' :symbolvalue,
   true (6, 6, 6)
@@ -73,12 +73,12 @@ f = (x, y, z) => {
 }
 
 f(1, 2, 3)  ; 7
-f(4, 5)  ; (z) var => { f(4, 5, z) }
+f(4, 5)  ; (z) => { f(4, 5, z) }
 
 g = { 4 + 5 }
 g()  ; 9
 
-(a) var = { 4 + a }(10)  ; 14
+(a) => { 4 + a }(10)  ; 14
 ```
 
 ### Branching
@@ -88,8 +88,8 @@ a = if({ >(4, 5) }, 47, :no)  ; :no
 
 ### Higher Order Functions
 ```
-map((x) var => {x+1}, [1, 2, 3])  ; [2, 3, 4]
-foldl((a, b) var => )
+map((x) => {x+1}, [1, 2, 3])  ; [2, 3, 4]
+foldl((a, b) => )
 ```
 
 ### Basic I/O
