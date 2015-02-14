@@ -23,9 +23,11 @@ a = 5  ; ERROR, can't mutate variables
 ### Advanced Types
 #### List
 ```
-l = (1, 2, 3, 4)
-head(l)  ; 1
-tail(l)  ; (2, 3, 4)
+a = cons(1, cons(2, cons(3, cons(4, nil))))  ; "pure" way
+
+b = (1, 2, 3, 4)  ; syntactic sugar
+head(a)  ; 1
+tail(b)  ; cons(2, cons(3, cons(4, nil)))
 ```
 
 #### Vector
@@ -37,7 +39,7 @@ len(v)  ; 4
 
 ### Map
 ```
-m = #{
+m = {
   :a 4,
   'stringkey' :symbolvalue,
   true (6, 6, 6)
@@ -76,7 +78,7 @@ f(4, 5)  ; (z) var => { f(4, 5, z) }
 g = { 4 + 5 }
 g()  ; 9
 
-(a) var => { 4 + a }(10)  ; 14
+(a) var = { 4 + a }(10)  ; 14
 ```
 
 ### Branching
